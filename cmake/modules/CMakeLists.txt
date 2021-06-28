@@ -1,3 +1,3 @@
-set(modules "DFM2PTHMacros.cmake")
+set(modules "Random2pMacros.cmake")
 
 install(FILES ${modules} DESTINATION ${DUNE_INSTALL_MODULEDIR})
