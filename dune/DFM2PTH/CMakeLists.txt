@@ -1,2 +1,0 @@
-#install headers
-install(FILES DFM2PTH.hh DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dune/DFM2PTH)
