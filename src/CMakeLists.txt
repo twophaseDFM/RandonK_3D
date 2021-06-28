@@ -1,2 +1,2 @@
-add_executable("DFM2PTH" DFM2PTH.cc)
-target_link_dune_default_libraries("DFM2PTH")
+add_executable("random2p" random2p.cc)
+target_link_dune_default_libraries("random2p")
