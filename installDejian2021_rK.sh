@@ -8,6 +8,7 @@ git clone https://gitlab.dune-project.org/extensions/dune-alugrid.git
 git clone https://git.iws.uni-stuttgart.de/dumux-repositories/dumux.git
 git clone https://github.com/twophaseDFM/RandomK_3D.git
 ./dune-common/bin/dunecontrol --opts=dumux/cmake.opts all
+./dumux/bin/installexternal.py gstat
 
 
 
