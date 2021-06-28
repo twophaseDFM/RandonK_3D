@@ -1,0 +1,12 @@
+################################
+# Dune module information file #
+################################
+
+# Name of the module
+Module: DFM2PTH
+Version: 0.1
+Maintainer: dejian.zhou@geo.uni-goettingen.de
+# Required build dependencies
+Depends: dumux
+# Optional build dependencies
+#Suggests:

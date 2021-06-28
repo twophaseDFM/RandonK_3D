@@ -1,0 +1,35 @@
+This is the twophase DFN model from Dejian
+
+Installation instruction (for linux)
+For building the code from source, create a new folder and download the installDejian2021.sh script from this repository into the newly created folder. Then, type
+chmod +x installDejian2021.sh
+./installDejian2021.sh
+
+come to the folder dumux/build-cmake/DFM2PTH, type
+make dfm2pth
+
+You can now execute the model by typing:
+./dfm2pth params.input
+
+******** (useless) how to use primary variables in the model  ********
+
+come to the file
+dumux/dumux/material/spatialparams/fv1p.hh
+
+come to line 182, replace 
+template <class ElementSolution> 
+by
+template <class ElementSolution, class FluidState> 
+
+and add 
+const FluidState& fs
+into the function permeability 
+
+then come to the file
+dumux/dumux/porosmediumflow/2p/volumevariable.hh
+
+come to line 113, replace 
+permeability_ = spatialParams.permeability(element, scv, elemSol)
+with 
+permeability_ = spatialParams.permeability(element, scv, elemSol, fluidState_)
+
