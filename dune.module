@@ -3,7 +3,7 @@
 ################################
 
 # Name of the module
-Module: DFM2PTH
+Module: random2p
 Version: 0.1
 Maintainer: dejian.zhou@geo.uni-goettingen.de
 # Required build dependencies

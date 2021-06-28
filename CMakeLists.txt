@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(DFM2PTH CXX)
+project(random2p CXX)
 
 if(NOT (dune-common_DIR OR dune-common_ROOT OR
       "${CMAKE_PREFIX_PATH}" MATCHES ".*dune-common.*"))
@@ -24,7 +24,7 @@ add_subdirectory(src)
 add_subdirectory(dune)
 add_subdirectory(doc)
 add_subdirectory(cmake/modules)
-add_subdirectory(DFM2PTH)
+add_subdirectory(random2p)
 
 # finalize the dune project, e.g. generating config.h etc.
 finalize_dune_project(GENERATE_CONFIG_H_CMAKE)

@@ -1,35 +1,53 @@
-This is the twophase DFN model from Dejian
+Preparing the Sources
+=========================
 
-Installation instruction (for linux)
-For building the code from source, create a new folder and download the installDejian2021.sh script from this repository into the newly created folder. Then, type
-chmod +x installDejian2021.sh
-./installDejian2021.sh
+Additional to the software mentioned in README you'll need the
+following programs installed on your system:
 
-come to the folder dumux/build-cmake/DFM2PTH, type
-make dfm2pth
+  cmake >= 3.13
 
-You can now execute the model by typing:
-./dfm2pth params.input
+Getting started
+---------------
 
-******** (useless) how to use primary variables in the model  ********
+If these preliminaries are met, you should run
 
-come to the file
-dumux/dumux/material/spatialparams/fv1p.hh
+  dunecontrol all
 
-come to line 182, replace 
-template <class ElementSolution> 
-by
-template <class ElementSolution, class FluidState> 
+which will find all installed dune modules as well as all dune modules
+(not installed) which sources reside in a subdirectory of the current
+directory. Note that if dune is not installed properly you will either
+have to add the directory where the dunecontrol script resides (probably
+./dune-common/bin) to your path or specify the relative path of the script.
 
-and add 
-const FluidState& fs
-into the function permeability 
+Most probably you'll have to provide additional information to dunecontrol
+(e. g. compilers, configure options) and/or make options.
 
-then come to the file
-dumux/dumux/porosmediumflow/2p/volumevariable.hh
+The most convenient way is to use options files in this case. The files
+define four variables:
 
-come to line 113, replace 
-permeability_ = spatialParams.permeability(element, scv, elemSol)
-with 
-permeability_ = spatialParams.permeability(element, scv, elemSol, fluidState_)
+CMAKE_FLAGS      flags passed to cmake (during configure)
 
+An example options file might look like this:
+
+#use this options to configure and make if no other options are given
+CMAKE_FLAGS=" \
+-DCMAKE_CXX_COMPILER=g++-5 \
+-DCMAKE_CXX_FLAGS='-Wall -pedantic' \
+-DCMAKE_INSTALL_PREFIX=/install/path" #Force g++-5 and set compiler flags
+
+If you save this information into example.opts you can pass the opts file to
+dunecontrol via the --opts option, e. g.
+
+  dunecontrol --opts=example.opts all
+
+More info
+---------
+
+See
+
+     dunecontrol --help
+
+for further options.
+
+
+The full build system is described in the dune-common/doc/buildsystem (Git version) or under share/doc/dune-common/buildsystem if you installed DUNE!
